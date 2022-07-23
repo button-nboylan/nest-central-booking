@@ -1,0 +1,76 @@
+{
+    "family": "{{ aws_task_name }}",
+    "containerDefinitions": [
+        {
+            "name": "{{ service_name }}",
+            "image": "{{ ecr_registry_host }}/{{ service_name }}:{{ version }}",
+            "cpu": 24,
+            "memory": 256,
+            "portMappings": [
+                {
+                    "containerPort": {{ container_port }},
+                    "hostPort": {{ elb_port }},
+                    "protocol": "tcp"
+                }
+            ],
+            "essential": true,
+            "environment": [
+               {
+                  "name": "PORT",
+                  "value": "{{ container_port }}"
+               },
+               {
+                  "name": "NODE_ENV",
+                  "value": "{{ service_env }}"
+               },
+               {
+                  "name": "LOGGLY_TOKEN",
+                  "value": "{{ loggly_token }}"
+               },
+               {
+                  "name": "LOGGLY_TAGS",
+                  "value": "app-{{ service_name }},env-{{ service_env }}"
+               },
+               {
+                  "name": "SENTRY_DSN",
+                  "value": "{{ sentry_dsn }}"
+               },
+               {
+                  "name": "MATCH_FINGERPRINTS",
+                  "value": "{{ match_fingerprints }}"
+               },
+               {
+                  "name": "ATTRIBUTION_WINDOW",
+                  "value": "{{ attribution_window }}"
+               },
+               {
+                  "name": "DEFERRED_DEEPLINK_WINDOW",
+                  "value": "{{ deferred_deeplink_window }}"
+               },
+               {
+                  "name": "REDIS_HOST",
+                  "value": "{{ redis_host }}"
+               },
+               {
+                  "name": "REDIS_PORT",
+                  "value": "{{ redis_port }}"
+               },
+               {
+                  "name": "SERVICE_NAME",
+                  "value": "{{ service_name }}"
+               },
+               {
+                  "name": "CHAMBER_DISABLE",
+                  "value": "true"
+               }
+            ],
+            "dockerLabels": {
+                "METRICS_PORT": "{{ container_port }}",
+                "METRICS_PATH": "/_/metrics",
+                "METRICS_NAME": "{{ service_name }}",
+                "CLUSTER": "{{ cluster }}"
+            }
+        }
+    ],
+    "volumes": []
+}

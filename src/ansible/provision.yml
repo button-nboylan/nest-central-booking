@@ -1,0 +1,11 @@
+---
+  - name: "Create a new Central Booking service"
+    hosts: local
+    connection: local
+    gather_facts: true
+    vars_files:
+      - vars/generic.yml
+      - vars/{{ cluster }}.yml
+      - vars/secret-{{ cluster }}.yml
+    roles:
+      - aws_ecs_provision

@@ -1,0 +1,14 @@
+{
+    "cluster": "{{ cluster }}",
+    "serviceName": "{{ aws_service_name }}",
+    "taskDefinition": "{{ aws_task_name }}",
+    "loadBalancers": [
+        {
+            "loadBalancerName": "{{ elb_name }}",
+            "containerName": "{{ service_name }}",
+            "containerPort": {{ container_port }}
+        }
+    ],
+    "desiredCount": {{ num_tasks }},
+    "role": "ecsServiceRole"
+}

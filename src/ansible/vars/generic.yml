@@ -1,0 +1,4 @@
+---
+service_name: "central-booking"
+elb_port: 9011
+container_port: 3000

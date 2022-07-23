@@ -1,0 +1,11 @@
+version: "3.3"
+services:
+  server:
+    image: "central-booking:latest"
+    ports:
+      - "9000:9000"
+    environment:
+      CHAMBER_DISABLE: "true"
+      REDIS_HOST: "redis"
+  redis:
+    image: "redis:6.2.6"

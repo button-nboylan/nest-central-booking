@@ -1,0 +1,8 @@
+port: 9000
+sentryDsn: null
+matchFingerprints: true
+attributionWindow: 10800
+deferredDeeplinkWindow: 1200
+
+redisHost: 'localhost'
+redisPort: '6379'

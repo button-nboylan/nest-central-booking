@@ -1,0 +1,7 @@
+---
+num_tasks: 3
+match_fingerprints: true
+attribution_window: 10800
+deferred_deeplink_window: 10800
+redis_host: "central-b-prod.qhrppu.ng.0001.usw2.cache.amazonaws.com"
+redis_port: 6379

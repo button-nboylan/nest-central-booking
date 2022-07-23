@@ -1,0 +1,11 @@
+---
+  - name: "Deploy Central Booking"
+    hosts: local
+    connection: local
+    gather_facts: true
+    vars_files:
+      - vars/generic.yml
+      - vars/{{ cluster }}.yml
+      - vars/secret-{{ cluster }}.yml
+    roles:
+      - aws_ecs_deploy

@@ -1,0 +1,8 @@
+port: PORT
+sentryDsn: SENTRY_DSN
+matchFingerprints: MATCH_FINGERPRINTS
+attributionWindow: ATTRIBUTION_WINDOW
+deferredDeeplinkWindow: DEFERRED_DEEPLINK_WINDOW
+
+redisHost: REDIS_HOST
+redisPort: REDIS_PORT
