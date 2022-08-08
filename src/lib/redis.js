@@ -69,4 +69,4 @@ const createRedisClient = async (client, scripts, errorLogger) => {
   return extend(redisFunctions, scriptFunctions, { multi });
 };
 
-module.exports = createRedisClient;
+module.exports = createRedisClient; // FIXME :: fix this bullshit

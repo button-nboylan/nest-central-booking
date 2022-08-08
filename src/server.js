@@ -43,4 +43,5 @@ const start = async () => {
 
 start().catch(err => errorLogger.logError(err));
 
-module.exports = { nodeRedisClient, redisScripts };
+// eslint-disable-next-line max-len
+module.exports = { nodeRedisClient, redisScripts }; // FIXME :: abstract these to nestjs, injectable services
